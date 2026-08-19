@@ -118,21 +118,19 @@ def read_pending_rows(sheets: Any) -> list[dict]:
         while len(row) < 10:
             row.append(None)
 
-        # A=0state B=1title C=2desc D=3tags E=4cat F=5privacy G=6publish H=7video I=8thumb J=9playlist
-        state = row[0] if len(row) > 0 else None
-        if state and state.strip().upper() == STATE_WAIT:
+        # row is padded to 10 — safe to index directly
+        if row[0] and row[0].strip().upper() == STATE_WAIT:
             pending.append({
                 "row_num": idx,
-                "state": row[0],
-                "title": row[1] if len(row) > 1 else None,
-                "description": row[2] if len(row) > 2 else None,
-                "tags": row[3] if len(row) > 3 else None,
-                "category_id": row[4] if len(row) > 4 else None,
-                "privacy_status": row[5] if len(row) > 5 else None,
-                "publish_at": row[6] if len(row) > 6 else None,
-                "video_path": row[7] if len(row) > 7 else None,
-                "thumbnail_path": row[8] if len(row) > 8 else None,
-                "playlist_id": row[9] if len(row) > 9 else None,
+                "title": row[1],
+                "description": row[2],
+                "tags": row[3],
+                "category_id": row[4],
+                "privacy_status": row[5],
+                "publish_at": row[6],
+                "video_path": row[7],
+                "thumbnail_path": row[8],
+                "playlist_id": row[9],
             })
 
     return pending

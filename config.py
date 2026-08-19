@@ -11,18 +11,11 @@ TOKEN_FILE = os.path.join(BASE_DIR, "token.json")
 SPREADSHEET_ID = "1RJHqQASgP7U2bej9qnibKYVyBC_zpc6EpW33P1irCsU"
 SHEET_NAME = "KATY404"
 
-# Column indices (1-based, matching Google Sheets API)
-COL_STATE = 1          # A
-COL_VIDEO_TITLE = 2    # B
-COL_DESCRIPTION = 3    # C
-COL_TAGS = 4           # D
-COL_CATEGORY_ID = 5    # E
-COL_PRIVACY_STATUS = 6 # F
-COL_PUBLISH_AT = 7     # G
-COL_VIDEO_PATH = 8     # H
-COL_THUMBNAIL_PATH = 9 # I
-COL_PLAYLIST_ID = 10   # J
-COL_VIDEO_ID = 11      # K  (written back after upload)
+# ─── Column indices
+# read_pending_rows uses 0-based inline (row[0]..row[9])
+# update_cell uses 1-based (A=1, K=11)
+COL_STATE = 1
+COL_VIDEO_ID = 11
 
 # ─── Upload states ───────────────────────────────────────────────────────────
 STATE_WAIT = "WAIT_UPLOAD"
