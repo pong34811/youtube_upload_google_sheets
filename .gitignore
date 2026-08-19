@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 .freebuff/
 check_sheet.py
+client_secrets.json
